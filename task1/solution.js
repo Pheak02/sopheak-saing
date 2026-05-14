@@ -27,17 +27,45 @@ const data = [
 // ================================== Coding Part ================================== 
 
 //reduce() into a dictionary(object)
-const groupedByRegion = Object.groupBy(data, ({region}) => region)
+function groupAndAggregate(data) {
 
-const agreeSum = Object.keys(groupedByRegion).map(region => ({
-    region,
-    totalRevenue: groupedByRegion[region].reduce((total, item) => total + item.revenue, 0),
-    topProduct: groupedByRegion[region].reduce((top, item) => item.revenue > top.revenue ? item : top),
-}))
+    if (!data.length) {
+        return {}
+    }
 
-console.log('agreeSum', agreeSum)
+    const groupedByRegion = Object.groupBy(data, ({ region }) => region)
 
-const totalRevenue = data.reduce((acc, cur) =>{
-    acc[cur.product] = (acc[cur.revenue] || 0) + cur.re;
-    return acc;
-});
+    return Object.keys(groupedByRegion).reduce((result, region) => {
+
+        const items = groupedByRegion[region]
+
+        const totalRevenue = items.reduce(
+            (total, item) => total + item.revenue,
+            0
+        )
+
+        const totalOrders = items.reduce(
+            (total, item) => total + item.orders,
+            0
+        )
+
+        const avgOrderValue = Number(
+            (totalRevenue / totalOrders).toFixed(2)
+        )
+
+        const topProduct = items.reduce((top, item) => {
+            return item.revenue > top.revenue ? item : top
+        }).product
+
+        result[region] = {
+            totalRevenue,
+            avgOrderValue,
+            topProduct
+        }
+
+        return result
+
+    }, {})
+}
+console.log(groupAndAggregate(data))
+module.exports = groupAndAggregate
