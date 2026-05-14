@@ -1,7 +1,8 @@
 /*==================================01 Data Transformation(groupAndAggregate(data))======================
 Given an array of sales records, return an object grouped by region. Each key should map to an object
 containing totalRevenue, avgOrderValue, and topProduct — the product name with the highest total
-revenue in that region.*/
+revenue in that region.
+*/
 
 const data = [
     { region: 'Asia', product: 'Widget A', revenue: 4200, orders: 14 },
