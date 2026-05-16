@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <title>QR Code Component</title>
+</head>
+<body>
+<main>
+    <div class="qr-code-wrapper">
+        <div class="card">
+            <img src="/qr-code-component/images/image-qr-code.png" alt="qr-code" class="qr-img">
+            <p class="header-text">Improve your front-end skills by building projects</p>
+            <p class="body-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>
+<style>
+    .qr-code-wrapper {
+        height: 100vh;
+        font-family: 'Outfit', sans-serif;
+        background-color: #D6E2F0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        .card {
+            background-color: white;
+            width: 280px;
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+            .qr-img {
+                width: 280px;
+                height: 280px;
+                border-radius: 15px;
+            }
+            .header-text {
+                font-size: 22px;
+                font-weight: 700;
+                margin: 14px;
+            }
+            .body-text {
+                font-size: 15px;
+                font-weight: 400;
+                color: #7B879D;
+                margin: 6px 0 26px 0;
+            }
+        }
+    }
+    body {
+        margin: 0;
+    }
+</style>
